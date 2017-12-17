@@ -17,6 +17,7 @@ namespace shanuMVCUserRoles.Models
         public bool IsAccepted { get; set; }
         public bool IsRejected { get; set; }
         public bool IsProposed { get; set; }
+        public string TakenByID { get; set; }
     }
     public class AttendanceDBContext : DbContext
     {

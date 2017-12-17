@@ -35,6 +35,9 @@
         <th>
             @Html.DisplayNameFor(model => model.IsProposed)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakenByID)
+        </th>
         <th></th>
     </tr>
 
@@ -66,6 +69,9 @@
                 @Html.DisplayFor(modelItem => item.IsProposed)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.TakenByID)
+            </td>
+            <td>
                 @if (User.IsInRole("Admin"))
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID });
@@ -76,7 +82,7 @@
                 {
                     if (item.IsTaken != true)
                     {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID });
                     }
                     @Html.ActionLink("Details", "Details", new { id = item.ID });
                 }
