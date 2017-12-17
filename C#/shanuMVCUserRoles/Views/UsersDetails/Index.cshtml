@@ -29,29 +29,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserMail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsPromotor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsStudent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAdmin)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPromotor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsStudent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAdmin)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+                    @Html.ActionLink("Details", "Details", new { id = item.ID });
+                }
+                else
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.ID });
+                }
+
+
+
+            </td>
+        </tr>
+    }
 
 </table>

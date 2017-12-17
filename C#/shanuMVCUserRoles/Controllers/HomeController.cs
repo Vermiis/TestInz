@@ -26,10 +26,6 @@ namespace shanuMVCUserRoles.Controllers
 
 			return View();
 		}
-        public ActionResult Topics()
-        {           
-
-            return View();
-        }
+        
     }
 }
