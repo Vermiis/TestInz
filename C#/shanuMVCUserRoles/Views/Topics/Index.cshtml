@@ -1,0 +1,69 @@
+﻿@model IEnumerable<shanuMVCUserRoles.Models.Topics>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRejected)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsProposed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAccepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRejected)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsProposed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
