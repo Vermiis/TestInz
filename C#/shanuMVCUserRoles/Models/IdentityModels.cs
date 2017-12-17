@@ -33,5 +33,7 @@ namespace shanuMVCUserRoles.Models
         public System.Data.Entity.DbSet<shanuMVCUserRoles.Models.Topics> Topics { get; set; }
 
         public System.Data.Entity.DbSet<shanuMVCUserRoles.Models.Majors> Majors { get; set; }
+
+        public System.Data.Entity.DbSet<shanuMVCUserRoles.Models.UsersDetails> UsersDetails { get; set; }
     }
 }

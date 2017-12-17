@@ -7,8 +7,8 @@ namespace shanuMVCUserRoles.Models
 {
     public class Specjals
     {
+        public int ID { get; set; }
         public int MajorID { get; set; }
-        public int SpecjalID { get; set; }
         public string SpecjalName { get; set; }
     }
 }

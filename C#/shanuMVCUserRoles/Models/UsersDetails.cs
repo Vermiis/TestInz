@@ -5,7 +5,7 @@ using System.Web;
 
 namespace shanuMVCUserRoles.Models
 {
-    public class Users
+    public class UsersDetails
     {
         public int ID { get; set; }
         public string UserName { get; set; }
