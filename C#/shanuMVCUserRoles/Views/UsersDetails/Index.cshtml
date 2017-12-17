@@ -38,15 +38,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UserMail)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsPromotor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsStudent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAdmin)
-            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsPromotor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsStudent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+            }
+
             <td>
                 @if (User.IsInRole("Admin") || User.IsInRole("Promotor"))
                 {

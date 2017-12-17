@@ -21,6 +21,9 @@
             @Html.DisplayNameFor(model => model.PromotorID)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.PromotorName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.IsTaken)
         </th>
         <th>
@@ -35,35 +38,48 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PromotorID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsTaken)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAccepted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsRejected)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProposed)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRejected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsProposed)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Details", "Details", new { id = item.ID });
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+                }
+                else if (User.IsInRole("Student"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Details", "Details", new { id = item.ID });
+                }
+
+            </td>
+        </tr>
+    }
 
 </table>
