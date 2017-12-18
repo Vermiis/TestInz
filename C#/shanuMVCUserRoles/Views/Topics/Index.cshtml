@@ -83,6 +83,7 @@
                     if (item.IsTaken != true)
                     {
                         @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+                        @Html.ActionLink("Reservation", "Reservation", new { id = item.ID });
                     }
                     @Html.ActionLink("Details", "Details", new { id = item.ID });
                 }

@@ -57,6 +57,38 @@ namespace shanuMVCUserRoles.Controllers
 
             return View(topics);
         }
+        //REZERWACJA
+
+        public ActionResult Reservation(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Topics topics = db.Topics.Find(id);
+            if (topics == null)
+            {
+                return HttpNotFound();
+            }
+            return View(topics);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Reservation([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed,TakenByID")] Topics topics)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(topics).State = EntityState.Modified;
+                topics.TakenByID = User.Identity.Name.ToString();
+                topics.IsTaken = true;
+                topics.PromotorName = topics.PromotorName;
+                
+                
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(topics);
+        }
 
         // GET: Topics/Edit/5
         public ActionResult Edit(int? id)
