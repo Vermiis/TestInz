@@ -85,6 +85,8 @@ namespace shanuMVCUserRoles.Controllers
                 entry.Property(e => e.Title).IsModified = false;
                 entry.Property(e => e.Details).IsModified = false;
                 entry.Property(e => e.IsAccepted).IsModified = false;
+                entry.Property(e => e.IsProposed).IsModified = false;
+                entry.Property(e => e.IsRejected).IsModified = false;
                 topics.TakenByID = User.Identity.Name.ToString();
                 topics.IsTaken = true;
                               
