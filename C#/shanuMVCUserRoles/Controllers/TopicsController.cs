@@ -72,18 +72,22 @@ namespace shanuMVCUserRoles.Controllers
             }
             return View(topics);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Reservation([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed,TakenByID")] Topics topics)
+        public ActionResult Reservation(Topics topics)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(topics).State = EntityState.Modified;
+
+                var entry = db.Entry(topics);
+                entry.Property(e => e.Title).IsModified = false;
+                entry.Property(e => e.Details).IsModified = false;
+                entry.Property(e => e.IsAccepted).IsModified = false;
                 topics.TakenByID = User.Identity.Name.ToString();
                 topics.IsTaken = true;
-                topics.PromotorName = topics.PromotorName;
-                
-                
+                              
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
