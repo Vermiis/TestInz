@@ -84,6 +84,8 @@ namespace shanuMVCUserRoles.Controllers
                 var entry = db.Entry(topics);
                 entry.Property(e => e.Title).IsModified = false;
                 entry.Property(e => e.Details).IsModified = false;
+                entry.Property(e => e.PromotorID).IsModified = false;
+                entry.Property(e => e.PromotorName).IsModified = false;
                 entry.Property(e => e.IsAccepted).IsModified = false;
                 entry.Property(e => e.IsProposed).IsModified = false;
                 entry.Property(e => e.IsRejected).IsModified = false;
