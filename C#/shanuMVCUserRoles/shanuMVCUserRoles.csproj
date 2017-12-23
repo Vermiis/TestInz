@@ -264,6 +264,7 @@
     <Content Include="Views\UsersDetails\Edit.cshtml" />
     <Content Include="Views\UsersDetails\Index.cshtml" />
     <Content Include="Views\Topics\Reservation.cshtml" />
+    <Content Include="Views\Topics\StudentProposition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

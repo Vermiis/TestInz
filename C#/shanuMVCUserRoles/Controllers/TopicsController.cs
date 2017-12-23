@@ -46,11 +46,36 @@ namespace shanuMVCUserRoles.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed, TakenByID")] Topics topics)
+        public ActionResult Create([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed, TakenByID, TypeOf")] Topics topics)
         {
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(topics);
+        }
+
+        // GET: Topics/Create
+        public ActionResult StudentProposition()
+        {
+            return View();
+        }
+
+        // POST: Topics/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult StudentProposition([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed, TakenByID, TypeOf")] Topics topics)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Topics.Add(topics);
+                topics.TakenByID = User.Identity.Name.ToString();
+                topics.IsProposed = true;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -89,6 +114,8 @@ namespace shanuMVCUserRoles.Controllers
                 entry.Property(e => e.IsAccepted).IsModified = false;
                 entry.Property(e => e.IsProposed).IsModified = false;
                 entry.Property(e => e.IsRejected).IsModified = false;
+                entry.Property(e => e.TypeOf).IsModified = false;
+
                 topics.TakenByID = User.Identity.Name.ToString();
                 topics.IsTaken = true;
                               
@@ -118,7 +145,7 @@ namespace shanuMVCUserRoles.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed,TakenByID")] Topics topics)
+        public ActionResult Edit([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed,TakenByID, TypeOf")] Topics topics)
         {
             if (ModelState.IsValid)
             {
