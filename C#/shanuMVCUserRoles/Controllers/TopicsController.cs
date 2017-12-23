@@ -20,6 +20,27 @@ namespace shanuMVCUserRoles.Controllers
             return View(db.Topics.ToList());
         }
 
+        // GET: Topics
+        public ActionResult ProposedTopics()
+        {
+            
+            var all = db.Topics.ToList();
+            var query = db.Topics;
+            var query2 = query.Where(x => x.IsProposed == true);
+            query2.ToList();
+            return View(query2);
+        }
+
+        public ActionResult MyTopics()
+        {
+
+            var all = db.Topics.ToList();
+            var query = db.Topics;
+            var query2 = query.Where(x => x.TakenByID == User.Identity.Name);
+            query2.ToList();
+            return View(query2);
+        }
+
         // GET: Topics/Details/5
         public ActionResult Details(int? id)
         {

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<shanuMVCUserRoles.Models.Topics>
+
+@{
+    ViewBag.Title = "MyTopics";
+}
+
+<h2>MyTopics</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRejected)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsProposed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakenByID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOf)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PromotorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAccepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRejected)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsProposed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TakenByID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOf)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
