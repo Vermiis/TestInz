@@ -22,23 +22,13 @@ namespace shanuMVCUserRoles.Controllers
 
         // GET: Topics
         public ActionResult ProposedTopics()
-        {
-            
-            var all = db.Topics.ToList();
-            var query = db.Topics;
-            var query2 = query.Where(x => x.IsProposed == true);
-            query2.ToList();
-            return View(query2);
+        {         
+            return View(db.Topics.Where(x => x.IsProposed == true).ToList());
         }
 
         public ActionResult MyTopics()
-        {
-
-            var all = db.Topics.ToList();
-            var query = db.Topics;
-            var query2 = query.Where(x => x.TakenByID == User.Identity.Name);
-            query2.ToList();
-            return View(query2);
+        {         
+            return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name).ToList());
         }
 
         // GET: Topics/Details/5
