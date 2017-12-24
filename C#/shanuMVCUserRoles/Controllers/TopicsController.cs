@@ -28,7 +28,7 @@ namespace shanuMVCUserRoles.Controllers
 
         public ActionResult MyTopics()
         {         
-            return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name).ToList());
+            return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted==true ||x.IsTaken==true).ToList());
         }
 
         // GET: Topics/Details/5
