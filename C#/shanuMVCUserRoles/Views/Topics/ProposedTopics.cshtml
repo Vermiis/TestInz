@@ -43,6 +43,8 @@
 
     @foreach (var item in Model)
     {
+        if (User.IsInRole("Promotor") && item.PromotorName == User.Identity.Name.ToString() || User.IsInRole("Admin"))
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -69,6 +71,7 @@
                 @Html.DisplayFor(modelItem => item.TypeOf)
             </td>
             <td>
+                
                 @if (User.IsInRole("Admin"))
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID });
@@ -85,7 +88,9 @@
                 }
 
             </td>
+            
         </tr>
-    }
+            }
+        }
 
 </table>
