@@ -4,9 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using Microsoft.AspNet.Identity;
+using System.Web.Security;
 using System.Web;
 using System.Web.Mvc;
 using shanuMVCUserRoles.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace shanuMVCUserRoles.Controllers
 {
@@ -22,13 +26,13 @@ namespace shanuMVCUserRoles.Controllers
 
         // GET: Topics
         public ActionResult ProposedTopics()
-        {         
+        {
             return View(db.Topics.Where(x => x.IsProposed == true).ToList());
         }
 
         public ActionResult MyTopics()
-        {         
-            return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted==true ||x.IsTaken==true).ToList());
+        {
+            return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted == true || x.IsTaken == true).ToList());
         }
 
         // GET: Topics/Details/5
@@ -88,6 +92,16 @@ namespace shanuMVCUserRoles.Controllers
                 topics.TakenByID = User.Identity.Name.ToString();
                 topics.IsProposed = true;
                 db.SaveChanges();
+
+                //var promotors = Roles.GetUsersInRole("Admin");
+                // var x = db.Roles.Where(role => role.Id == "87d86bf1-6826-463a-9d22-afe4673d3b07").ToList();
+              //  var s = db.Users.SelectMany(c => c.Id);
+              //  var t = db.Roles.SelectMany(r => r.Id);
+                var usersInRole = db.Users.Where(u => u.Roles.Join(db.Roles, usrRole => usrRole.RoleId, role => role.Id, (usrRole, role) => role).Any(r => r.Name.Equals("Promotor"))).ToList();
+                var promotornames=usersInRole.Select(p=>p.UserName);
+              
+
+
                 return RedirectToAction("Index");
             }
 
@@ -129,7 +143,7 @@ namespace shanuMVCUserRoles.Controllers
 
                 topics.TakenByID = User.Identity.Name.ToString();
                 topics.IsTaken = true;
-                              
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
