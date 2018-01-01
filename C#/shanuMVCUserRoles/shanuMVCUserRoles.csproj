@@ -188,6 +188,7 @@
     <Compile Include="Models\UsersDetails.cs" />
     <Compile Include="Models\UsersDetailsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\LINQueries.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

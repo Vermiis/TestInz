@@ -16,6 +16,7 @@ namespace shanuMVCUserRoles.Controllers
 {
     public class TopicsController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Topics
@@ -34,6 +35,7 @@ namespace shanuMVCUserRoles.Controllers
         {
             return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted == true || x.IsTaken == true).ToList());
         }
+
 
         // GET: Topics/Details/5
         public ActionResult Details(int? id)
@@ -97,10 +99,8 @@ namespace shanuMVCUserRoles.Controllers
                 // var x = db.Roles.Where(role => role.Id == "87d86bf1-6826-463a-9d22-afe4673d3b07").ToList();
               //  var s = db.Users.SelectMany(c => c.Id);
               //  var t = db.Roles.SelectMany(r => r.Id);
-                var usersInRole = db.Users.Where(u => u.Roles.Join(db.Roles, usrRole => usrRole.RoleId, role => role.Id, (usrRole, role) => role).Any(r => r.Name.Equals("Promotor"))).ToList();
-                var promotornames=usersInRole.Select(p=>p.UserName);
-              
-
+               // var usersInRole = db.Users.Where(u => u.Roles.Join(db.Roles, usrRole => usrRole.RoleId, role => role.Id, (usrRole, role) => role).Any(r => r.Name.Equals("Promotor"))).ToList();
+              //  var promotornames=usersInRole.Select(p=>p.UserName);
 
                 return RedirectToAction("Index");
             }
