@@ -50,30 +50,63 @@ else if (User.IsInRole("Student"))
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PromotorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsTaken)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAccepted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsRejected)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsProposed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TakenByID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOf)
-            </td>
+            @if (User.IsInRole("Student") && item.IsTaken == false)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PromotorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsTaken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAccepted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRejected)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsProposed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakenByID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOf)
+                </td>
+            }
+
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PromotorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsTaken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAccepted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRejected)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsProposed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakenByID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOf)
+                </td>
+            }
+
+
             <td>
                 @if (User.IsInRole("Admin"))
                 {
@@ -86,8 +119,9 @@ else if (User.IsInRole("Student"))
                     if (item.IsTaken != true)
                     {
                         @Html.ActionLink("Reservation", "Reservation", new { id = item.ID });
+                        @Html.ActionLink("Details", "Details", new { id = item.ID });
                     }
-                    @Html.ActionLink("Details", "Details", new { id = item.ID });
+
                 }
 
             </td>
