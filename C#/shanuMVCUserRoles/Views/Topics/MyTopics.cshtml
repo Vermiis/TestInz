@@ -41,42 +41,47 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PromotorID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PromotorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsTaken)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAccepted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsRejected)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsProposed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TakenByID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeOf)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.TakenByID == User.Identity.Name || item.PromotorName == User.Identity.Name)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PromotorID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PromotorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsTaken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAccepted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRejected)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsProposed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakenByID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOf)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                </td>
+            }
+
+        </tr>
+    }
 
 </table>

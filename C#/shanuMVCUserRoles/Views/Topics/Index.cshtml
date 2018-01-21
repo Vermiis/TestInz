@@ -50,7 +50,7 @@ else if (User.IsInRole("Student"))
     @foreach (var item in Model)
     {
         <tr>
-            @if (User.IsInRole("Student") && item.IsTaken == false)
+            @if (User.IsInRole("Student") && item.IsTaken == false && item.IsProposed == false)
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
@@ -78,7 +78,7 @@ else if (User.IsInRole("Student"))
                 </td>
             }
 
-            @if (User.IsInRole("Admin"))
+            else if (User.IsInRole("Admin") || User.IsInRole("Promotor"))
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
@@ -116,7 +116,7 @@ else if (User.IsInRole("Student"))
                 }
                 else if (User.IsInRole("Student"))
                 {
-                    if (item.IsTaken != true)
+                    if (item.IsTaken != true && item.IsProposed == false)
                     {
                         @Html.ActionLink("Reservation", "Reservation", new { id = item.ID });
                         @Html.ActionLink("Details", "Details", new { id = item.ID });
