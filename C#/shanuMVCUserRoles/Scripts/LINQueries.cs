@@ -8,6 +8,9 @@ using System.Data.Entity;
 using System.Net;
 using System.Web.Mvc;
 using System.Web.ModelBinding;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace shanuMVCUserRoles
 {
@@ -26,5 +29,23 @@ namespace shanuMVCUserRoles
                 return promotornames;
             }           
         }
+        public static IEnumerable<ApplicationUser> GetAllUsers()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var AllUsers = context.Users.ToList();
+            var UsrNamesAndID = AllUsers.Select(u => new SelectListItem { Value = u.Id, Text = u.UserName });
+            var x = UserManager.Users;
+            return UserManager.Users;
+        }
+        public static void GetStudentsWithTopic()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var AllUsers = context.Users.ToList();
+            //do dokończenia
+
+        }
+
     }
 }

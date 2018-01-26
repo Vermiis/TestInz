@@ -30,7 +30,7 @@ namespace shanuMVCUserRoles
 			if (!roleManager.RoleExists("Admin"))
 			{
 
-				// first we create Admin rool
+				// tworzenie roli admina
 				var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
 				role.Name = "Admin";
 				roleManager.Create(role);
