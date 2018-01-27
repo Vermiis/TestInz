@@ -186,7 +186,6 @@
     <Compile Include="Models\Specjals.cs" />
     <Compile Include="Models\Topics.cs" />
     <Compile Include="Models\UsersDetails.cs" />
-    <Compile Include="Models\UsersDetailsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\LINQueries.cs" />
     <Compile Include="Startup.cs" />
@@ -259,11 +258,6 @@
     <Content Include="Views\Majors\Details.cshtml" />
     <Content Include="Views\Majors\Edit.cshtml" />
     <Content Include="Views\Majors\Index.cshtml" />
-    <Content Include="Views\UsersDetails\Create.cshtml" />
-    <Content Include="Views\UsersDetails\Delete.cshtml" />
-    <Content Include="Views\UsersDetails\Details.cshtml" />
-    <Content Include="Views\UsersDetails\Edit.cshtml" />
-    <Content Include="Views\UsersDetails\Index.cshtml" />
     <Content Include="Views\Topics\Reservation.cshtml" />
     <Content Include="Views\Topics\StudentProposition.cshtml" />
     <Content Include="Views\Topics\ProposedTopics.cshtml" />
