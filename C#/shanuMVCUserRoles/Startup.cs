@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 using Owin;
 using System.Security.Claims;
 
-[assembly: OwinStartupAttribute(typeof(shanuMVCUserRoles.Startup))]
-namespace shanuMVCUserRoles
+[assembly: OwinStartupAttribute(typeof(zarzadzanieTematami.Startup))]
+namespace zarzadzanieTematami
 {
     public partial class Startup
     {

@@ -1,4 +1,4 @@
-﻿using shanuMVCUserRoles.Models;
+﻿using zarzadzanieTematami.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity;
 
-namespace shanuMVCUserRoles
+namespace zarzadzanieTematami
 {
 
     public class LINQueries

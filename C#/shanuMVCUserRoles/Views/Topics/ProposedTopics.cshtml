@@ -1,11 +1,11 @@
-﻿@model IEnumerable<shanuMVCUserRoles.Models.Topics>
+﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-@if (User.IsInRole("Admin"))
+@if (User.IsInRole("Admin") || User.IsInRole("Promotor"))
 {
     <p>
         @Html.ActionLink("Create New", "Create")

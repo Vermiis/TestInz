@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace shanuMVCUserRoles
+namespace zarzadzanieTematami
 {
 	public class BundleConfig
 	{

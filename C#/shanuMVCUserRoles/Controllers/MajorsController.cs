@@ -6,9 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 
-namespace shanuMVCUserRoles.Controllers
+namespace zarzadzanieTematami.Controllers
 {
     public class MajorsController : Controller
     {

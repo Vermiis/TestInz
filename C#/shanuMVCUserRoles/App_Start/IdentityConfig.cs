@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 
-namespace shanuMVCUserRoles
+namespace zarzadzanieTematami
 {
     public class EmailService : IIdentityMessageService
     {

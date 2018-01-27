@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace shanuMVCUserRoles.Models
+namespace zarzadzanieTematami.Models
 {
     public class Topics
     {

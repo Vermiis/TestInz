@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace shanuMVCUserRoles.Models
+namespace zarzadzanieTematami.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -30,10 +30,10 @@ namespace shanuMVCUserRoles.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<shanuMVCUserRoles.Models.Topics> Topics { get; set; }
+        public System.Data.Entity.DbSet<zarzadzanieTematami.Models.Topics> Topics { get; set; }
 
-        public System.Data.Entity.DbSet<shanuMVCUserRoles.Models.Majors> Majors { get; set; }
+        public System.Data.Entity.DbSet<zarzadzanieTematami.Models.Majors> Majors { get; set; }
 
-        public System.Data.Entity.DbSet<shanuMVCUserRoles.Models.UsersDetails> UsersDetails { get; set; }
+        public System.Data.Entity.DbSet<zarzadzanieTematami.Models.UsersDetails> UsersDetails { get; set; }
     }
 }

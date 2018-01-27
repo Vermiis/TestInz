@@ -8,11 +8,11 @@ using Microsoft.AspNet.Identity;
 using System.Web.Security;
 using System.Web;
 using System.Web.Mvc;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace shanuMVCUserRoles.Controllers
+namespace zarzadzanieTematami.Controllers
 {
     public class TopicsController : Controller
     {

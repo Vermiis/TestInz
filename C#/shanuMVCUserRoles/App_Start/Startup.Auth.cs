@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 
-namespace shanuMVCUserRoles
+namespace zarzadzanieTematami
 {
     public partial class Startup
     {

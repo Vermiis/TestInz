@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 
-namespace shanuMVCUserRoles.Controllers
+namespace zarzadzanieTematami.Controllers
 {
     [Authorize]
     public class ManageController : Controller

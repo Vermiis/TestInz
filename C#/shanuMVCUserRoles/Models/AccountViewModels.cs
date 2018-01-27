@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace shanuMVCUserRoles.Models
+namespace zarzadzanieTematami.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

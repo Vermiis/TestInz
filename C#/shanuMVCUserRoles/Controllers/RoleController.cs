@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using shanuMVCUserRoles.Models;
+using zarzadzanieTematami.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 
-namespace shanuMVCUserRoles.Controllers
+namespace zarzadzanieTematami.Controllers
 {
 	[Authorize]
 	public class RoleController : Controller
