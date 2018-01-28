@@ -39,7 +39,7 @@ namespace zarzadzanieTematami
 
 				var user = new ApplicationUser();
 				user.UserName = "admin";
-				user.Email = "nightmare.nira@gmail.com";
+				user.Email = "admin@test.com";
 
 				string userPWD = "1qaz@WSX3edc";
 

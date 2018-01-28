@@ -5,6 +5,10 @@
 }
 
 <h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 @if (User.IsInRole("Admin"))
 {
     <p>
@@ -50,61 +54,32 @@ else if (User.IsInRole("Student"))
     @foreach (var item in Model)
     {
         <tr>
-            @if (User.IsInRole("Student") && item.IsTaken == false && item.IsProposed == false)
-            {
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PromotorName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsTaken)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsAccepted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsRejected)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsProposed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TakenByID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TypeOf)
-                </td>
-            }
 
-            else if (User.IsInRole("Admin") || User.IsInRole("Promotor"))
-            {
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PromotorName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsTaken)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsAccepted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsRejected)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsProposed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TakenByID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TypeOf)
-                </td>
-            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRejected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsProposed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakenByID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOf)
+            </td>
+
 
 
             <td>
