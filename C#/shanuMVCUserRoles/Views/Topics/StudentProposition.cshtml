@@ -46,7 +46,8 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PromotorName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PromotorName, "", new { @class = "text-danger" })
-                @Html.DropDownList("test" , zarzadzanieTematami.LINQueries.GetPromotors(), "Promotor")
+                @Html.DropDownList("test", zarzadzanieTematami.LINQueries.GetPromotors(), "Promotor")
+                @Html.DropDownListFor(model => model.PromotorID, new SelectList(zarzadzanieTematami.LINQueries.GetPromotors(), "Id", "Nazwa"), "Promotor") ;
             </div>
         </div>
 
