@@ -207,6 +207,10 @@
     <Content Include="Areas\Student\Views\web.config" />
     <Content Include="Areas\Promotor\Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Student\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Student\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Topics.cshtml" />
+    <Content Include="Areas\Student\Views\Student\View.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -279,8 +283,6 @@
     <Folder Include="Areas\Promotor\Controllers\" />
     <Folder Include="Areas\Promotor\Models\" />
     <Folder Include="Areas\Promotor\Views\Shared\" />
-    <Folder Include="Areas\Student\Views\Shared\" />
-    <Folder Include="Areas\Student\Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
