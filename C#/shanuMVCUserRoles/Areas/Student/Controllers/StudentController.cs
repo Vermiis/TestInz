@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using zarzadzanieTematami.Models;
 
-namespace shanuMVCUserRoles.Areas.Student.Controllers
+namespace zarzadzanieTematami.Areas.Student.Controllers
 {
     public class StudentController : Controller
     {

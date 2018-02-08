@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\AdminViewModel.cs" />
+    <Compile Include="Areas\Promotor\Controllers\PromotorController.cs" />
     <Compile Include="Areas\Promotor\Models\ViewModels\PromotorViewModel.cs" />
     <Compile Include="Areas\Promotor\PromotorAreaRegistration.cs" />
     <Compile Include="Areas\Student\Controllers\StudentController.cs" />
@@ -216,6 +217,11 @@
     <Content Include="Areas\Promotor\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Promotor\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Promotor\Views\Edit.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\Create.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\Delete.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\Details.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\Edit.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -284,7 +290,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Promotor\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

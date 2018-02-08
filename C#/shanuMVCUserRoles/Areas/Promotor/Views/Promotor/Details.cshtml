@@ -1,0 +1,98 @@
+﻿@model zarzadzanieTematami.Models.Topics
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Topics</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PromotorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PromotorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PromotorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PromotorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAccepted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRejected)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRejected)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsProposed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsProposed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TakenByID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TakenByID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOf)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
