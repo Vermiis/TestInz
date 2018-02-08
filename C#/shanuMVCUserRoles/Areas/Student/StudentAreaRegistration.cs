@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace shanuMVCUserRoles.Areas.Student
+namespace zarzadzanieTematami.Areas.Student
 {
     public class StudentAreaRegistration : AreaRegistration 
     {

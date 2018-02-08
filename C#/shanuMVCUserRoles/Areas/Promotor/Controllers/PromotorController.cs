@@ -90,7 +90,7 @@ namespace shanuMVCUserRoles.Areas.Promotor.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed,TakenByID,TypeOf")] Topics topics)
+        public ActionResult Edit(PromotorEditTopicViewModel topics)
         {
             if (ModelState.IsValid)
             {
