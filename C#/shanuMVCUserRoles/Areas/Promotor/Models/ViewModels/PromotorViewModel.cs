@@ -1,4 +1,4 @@
-﻿public class PromotrAddTopicViewModel
+﻿public class PromotorAddTopicViewModel
 {
     public string Title { get; set; }
     public string Descripton { get; set; }
@@ -24,5 +24,4 @@ public class PromotorEditTopicViewModel
     public string TypeOf { get; set; }
     public bool IsAccepted { get; set; }
     public bool IsProposed { get; set; }
-
 }
