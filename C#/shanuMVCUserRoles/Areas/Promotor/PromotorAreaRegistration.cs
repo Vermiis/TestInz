@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace shanuMVCUserRoles.Areas.Promotor
+namespace zarzadzanieTematami.Areas.Promotor
 {
     public class PromotorAreaRegistration : AreaRegistration 
     {

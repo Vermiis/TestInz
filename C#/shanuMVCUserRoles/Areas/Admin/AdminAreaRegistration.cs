@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace shanuMVCUserRoles.Areas.Admin
+namespace zarzadzanieTematami.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
