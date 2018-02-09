@@ -63,6 +63,7 @@ namespace shanuMVCUserRoles.Areas.Promotor.Controllers
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
+                topics.PromotorName = User.Identity.Name;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
