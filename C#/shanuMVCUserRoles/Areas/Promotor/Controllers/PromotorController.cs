@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -51,29 +52,32 @@ namespace zarzadzanieTematami.Areas.Promotor.Controllers
             return View(topics);
         }
 
-        // GET: Promotor/Promotor/Create
-        public ActionResult Create()
+        // GET: Topics/Create
+        public ActionResult PromotorAddTopic()
         {
             return View();
         }
 
-        // POST: Promotor/Promotor/Create
+        // POST: Topics/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed,TakenByID,TypeOf")] Topics topics)
+        public ActionResult PromotorAddTopic([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed, TakenByID, TypeOf")] Topics topics)
         {
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
-                topics.PromotorName = User.Identity.Name;
+                topics.PromotorID = User.Identity.GetUserId();
+                topics.PromotorName = User.Identity.Name.ToString();
+                topics.IsAccepted = true;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(topics);
         }
+
 
         // GET: Promotor/Promotor/Edit/5
         public ActionResult Edit(int? id)
