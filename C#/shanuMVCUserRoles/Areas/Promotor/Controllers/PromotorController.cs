@@ -15,6 +15,10 @@ namespace zarzadzanieTematami.Areas.Promotor.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Promotor/Promotor
+        public ActionResult Index()
+        {
+            return View(db.Topics.ToList());
+        }
         public ActionResult MyTopicsAll()
         {
             return View(db.Topics.ToList().Where(x=>x.PromotorName==User.Identity.Name));
