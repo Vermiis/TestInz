@@ -20,16 +20,20 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
 
-            <td>
-        </tr>
+
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+
+    </tr>
     }
 </table>

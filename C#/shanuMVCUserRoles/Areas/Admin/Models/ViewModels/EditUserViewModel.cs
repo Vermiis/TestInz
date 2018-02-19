@@ -16,6 +16,7 @@ namespace zarzadzanieTematami.Areas.Admin.Models.ViewModels
         {
             this.UserName = user.UserName;
             this.Email = user.Email;
+            this.ID = user.Id;
         }
 
         [Required]
@@ -24,6 +25,7 @@ namespace zarzadzanieTematami.Areas.Admin.Models.ViewModels
 
         [Required]
         public string Email { get; set; }
+        public string ID { get; set; }
 
     }
 }
