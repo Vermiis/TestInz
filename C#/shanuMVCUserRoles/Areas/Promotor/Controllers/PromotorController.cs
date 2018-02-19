@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using zarzadzanieTematami.Models;
 
-namespace shanuMVCUserRoles.Areas.Promotor.Controllers
+namespace zarzadzanieTematami.Areas.Promotor.Controllers
 {
     public class PromotorController : Controller
     {
