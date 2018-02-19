@@ -107,6 +107,7 @@ namespace zarzadzanieTematami.Controllers
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
+                topics.PromotorID = User.Identity.GetUserId();
                 topics.PromotorName = User.Identity.Name.ToString();
                 topics.IsAccepted = true;
                 db.SaveChanges();
