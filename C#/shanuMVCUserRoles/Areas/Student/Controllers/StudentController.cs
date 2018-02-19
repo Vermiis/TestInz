@@ -15,7 +15,7 @@ namespace zarzadzanieTematami.Areas.Student.Controllers
         // GET: Student/Student
         public ActionResult Index()
         {          
-            return View(db.Topics.ToList().Where(x => x.IsTaken == false));
+            return View(db.Topics.ToList().Where(x => x.IsTaken == false && x.IsProposed == false));
         }
 
         public ActionResult Create()

@@ -228,6 +228,14 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\EditUserViewModel\Index.cshtml" />
     <Content Include="Areas\Admin\Views\EditUserViewModel\Delete.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\MyTopicsFree.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\MyTopicsProposed.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\MyTopicsTaken.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\PromotorAddTopic.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Reservation.cshtml" />
+    <Content Include="Areas\Student\Views\Student\StudentProposition.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Index.cshtml" />
+    <Content Include="Areas\Student\Views\Student\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
