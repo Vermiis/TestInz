@@ -30,32 +30,42 @@ namespace zarzadzanieTematami
                 return promotornames;
             }
         }
-        public static string GetNameByID( string ID)
+        public static string GetNameByID(string ID)
         {
             string username = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).UserName;
             return username;
         }
-
-
-
-
-            public static IEnumerable<ApplicationUser> GetAllUsers()
+        public static int TopicsAssignedToUser(string ID)
+        {
+            var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).UserName;
+            using (ApplicationDbContext db = new ApplicationDbContext())           
             {
-                ApplicationDbContext context = new ApplicationDbContext();
-                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                var AllUsers = context.Users.ToList();
-                var UsrNamesAndID = AllUsers.Select(u => new SelectListItem { Value = u.Id, Text = u.UserName });
-                var x = UserManager.Users;
-                return UserManager.Users;
+                var topics = db.Topics.ToList().Where(t => t.TakenByID == user);
+                return topics.Count();
             }
-            public static void GetStudentsWithTopic()
-            {
-                ApplicationDbContext context = new ApplicationDbContext();
-                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                var AllUsers = context.Users.ToList();
-                //do dokończenia
+                
+        }
 
-            }
+
+
+
+        public static IEnumerable<ApplicationUser> GetAllUsers()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var AllUsers = context.Users.ToList();
+            var UsrNamesAndID = AllUsers.Select(u => new SelectListItem { Value = u.Id, Text = u.UserName });
+            var x = UserManager.Users;
+            return UserManager.Users;
+        }
+        public static void GetStudentsWithTopic()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var AllUsers = context.Users.ToList();
+            //do dokończenia
 
         }
+
     }
+}
