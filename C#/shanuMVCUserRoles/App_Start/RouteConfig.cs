@@ -18,6 +18,22 @@ namespace zarzadzanieTematami
 				url: "{controller}/{action}/{id}",
 				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 			);
-		}
+
+            routes.MapRoute(
+                name: "Admin_default",
+                url: "Admin/{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+               name: "Promotor_default",
+               url: "Promotor/{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+            routes.MapRoute(
+               name: "Student_default",
+               url: "Student/{controller}/{action}/{id}",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+           );
+        }
 	}
 }
