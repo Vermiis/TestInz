@@ -11,7 +11,7 @@ namespace zarzadzanieTematami.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
-        public int PromotorID { get; set; }
+        public string PromotorID { get; set; }
         public string PromotorName { get; set; }
         public bool IsTaken { get; set; }
         public bool IsAccepted { get; set; }

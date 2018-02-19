@@ -142,6 +142,7 @@ namespace zarzadzanieTematami.Controllers
                 db.Topics.Add(topics);
                 topics.TakenByID = User.Identity.Name.ToString();
                 topics.IsProposed = true;
+                topics.PromotorName = LINQueries.GetNameByID(topics.PromotorID);
                 db.SaveChanges();
 
                 //var promotors = Roles.GetUsersInRole("Admin");
