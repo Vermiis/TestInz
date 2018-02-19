@@ -285,6 +285,10 @@
     <Content Include="Views\Topics\StudentProposition.cshtml" />
     <Content Include="Views\Topics\ProposedTopics.cshtml" />
     <Content Include="Views\Topics\MyTopics.cshtml" />
+    <Content Include="Views\Topics\MyTopicsFree.cshtml" />
+    <Content Include="Views\Topics\MyTopicsTaken.cshtml" />
+    <Content Include="Views\Topics\MyTopicsProposed.cshtml" />
+    <Content Include="Views\Topics\PromotorAddTopic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

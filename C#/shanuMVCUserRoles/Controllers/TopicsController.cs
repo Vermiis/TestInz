@@ -25,7 +25,7 @@ namespace zarzadzanieTematami.Controllers
             return View(db.Topics.ToList());
         }
 
-        // GET: Topics
+        // GET: Topics STUDENT
         public ActionResult ProposedTopics()
         {
             return View(db.Topics.Where(x => x.IsProposed == true).ToList());
@@ -35,7 +35,23 @@ namespace zarzadzanieTematami.Controllers
         {
             return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted == true || x.IsTaken == true).ToList());
         }
-
+        // GET: Promotor/Promotor
+        public ActionResult MyTopicsAll()
+        {
+            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name));
+        }
+        public ActionResult MyTopicsFree()
+        {
+            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name && x.IsTaken == false));
+        }
+        public ActionResult MyTopicsTaken()
+        {
+            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name && x.IsTaken == true));
+        }
+        public ActionResult MyTopicsProposed()
+        {
+            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name && x.IsProposed == true));
+        }
 
         // GET: Topics/Details/5
         public ActionResult Details(int? id)
@@ -69,6 +85,39 @@ namespace zarzadzanieTematami.Controllers
             {
                 db.Topics.Add(topics);
                 db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(topics);
+        }
+
+        // GET: Topics/Create
+        public ActionResult PromotorAddTopic()
+        {
+            return View();
+        }
+
+        // POST: Topics/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PromotorAddTopic([Bind(Include = "ID,Title,Details,PromotorID,PromotorName,IsTaken,IsAccepted,IsRejected,IsProposed, TakenByID, TypeOf")] Topics topics)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Topics.Add(topics);
+                topics.PromotorName = User.Identity.Name.ToString();
+                topics.IsAccepted = true;
+                db.SaveChanges();
+
+                //var promotors = Roles.GetUsersInRole("Admin");
+                // var x = db.Roles.Where(role => role.Id == "87d86bf1-6826-463a-9d22-afe4673d3b07").ToList();
+                //  var s = db.Users.SelectMany(c => c.Id);
+                //  var t = db.Roles.SelectMany(r => r.Id);
+                // var usersInRole = db.Users.Where(u => u.Roles.Join(db.Roles, usrRole => usrRole.RoleId, role => role.Id, (usrRole, role) => role).Any(r => r.Name.Equals("Promotor"))).ToList();
+                //  var promotornames=usersInRole.Select(p=>p.UserName);
+
                 return RedirectToAction("Index");
             }
 
