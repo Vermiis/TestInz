@@ -84,6 +84,7 @@ namespace zarzadzanieTematami.Controllers
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
+                topics.PromotorName = LINQueries.GetNameByID(topics.PromotorID);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

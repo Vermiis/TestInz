@@ -12,7 +12,7 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-else if (User.IsInRole("Student"))
+else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.ToString()) <=3)
 {
     <p>
         @Html.ActionLink("Create New", "StudentProposition")

@@ -37,10 +37,10 @@ namespace zarzadzanieTematami
         }
         public static int TopicsAssignedToUser(string ID)
         {
-            var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).UserName;
+          //  var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).Id;
             using (ApplicationDbContext db = new ApplicationDbContext())           
             {
-                var topics = db.Topics.ToList().Where(t => t.TakenByID == user);
+                var topics = db.Topics.ToList().Where(t => t.TakenByID == ID);
                 return topics.Count();
             }
                 
