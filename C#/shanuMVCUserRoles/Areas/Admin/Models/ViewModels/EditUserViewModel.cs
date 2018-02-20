@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using zarzadzanieTematami.Models;
 
 namespace zarzadzanieTematami.Areas.Admin.Models.ViewModels

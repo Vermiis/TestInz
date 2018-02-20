@@ -35,6 +35,10 @@ namespace zarzadzanieTematami.Controllers
         {
             return View(db.Topics.Where(x => x.TakenByID == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted == true || x.IsTaken == true).ToList());
         }
+        public ActionResult IndexStudent()
+        {
+            return View(db.Topics.Where(x=>x.IsTaken==false && x.IsProposed ==false).ToList());
+        }
         // GET: Promotor/Promotor
         public ActionResult MyTopicsAll()
         {
