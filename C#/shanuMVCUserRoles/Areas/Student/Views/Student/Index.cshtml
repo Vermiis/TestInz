@@ -12,7 +12,7 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-else if (User.IsInRole("Student"))
+else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.ToString()) <= 3)
 {
     <p>
         @Html.ActionLink("Create New", "StudentProposition")
@@ -26,21 +26,6 @@ else if (User.IsInRole("Student"))
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PromotorName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsTaken)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAccepted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsRejected)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProposed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TakenByID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TypeOf)
@@ -57,21 +42,6 @@ else if (User.IsInRole("Student"))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PromotorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsTaken)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAccepted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsRejected)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsProposed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TakenByID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeOf)

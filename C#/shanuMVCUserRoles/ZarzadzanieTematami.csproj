@@ -170,12 +170,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\EditUserViewModelController.cs" />
+    <Compile Include="Areas\Admin\Models\Topics.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\AdminViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\EditUserViewModel.cs" />
     <Compile Include="Areas\Promotor\Controllers\PromotorController.cs" />
     <Compile Include="Areas\Promotor\Models\ViewModels\PromotorViewModel.cs" />
     <Compile Include="Areas\Promotor\PromotorAreaRegistration.cs" />
-    <Compile Include="Areas\Student\Controllers\StudentController.cs" />
+    <Compile Include="Areas\Student\Controllers\TopicsController.cs" />
     <Compile Include="Areas\Student\Models\ViewModels\TopicStudentViewModel.cs" />
     <Compile Include="Areas\Student\StudentAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
