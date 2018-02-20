@@ -18,6 +18,7 @@ namespace zarzadzanieTematami.Models
         public bool IsRejected { get; set; }
         public bool IsProposed { get; set; }
         public string TakenByID { get; set; }
+        public string TakenBy { get; set; }
         public string TypeOf { get; set; }
     }
     public class AttendanceDBContext : DbContext

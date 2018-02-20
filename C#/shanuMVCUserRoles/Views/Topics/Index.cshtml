@@ -40,7 +40,7 @@ else if (User.IsInRole("Student"))
             @Html.DisplayNameFor(model => model.IsProposed)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TakenByID)
+            @Html.DisplayNameFor(model => model.TakenBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TypeOf)
@@ -71,7 +71,7 @@ else if (User.IsInRole("Student"))
                 @Html.DisplayFor(modelItem => item.IsProposed)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TakenByID)
+                @Html.DisplayFor(modelItem => item.TakenBy)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeOf)

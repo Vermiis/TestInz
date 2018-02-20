@@ -141,7 +141,8 @@ namespace zarzadzanieTematami.Controllers
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
-                topics.TakenByID = User.Identity.Name.ToString();
+                topics.TakenBy = User.Identity.Name.ToString();
+                topics.TakenByID = User.Identity.GetUserId().ToString();
                 topics.IsProposed = true;
                 topics.PromotorName = LINQueries.GetNameByID(topics.PromotorID);
                 db.SaveChanges();
@@ -192,7 +193,8 @@ namespace zarzadzanieTematami.Controllers
                 entry.Property(e => e.IsRejected).IsModified = false;
                 entry.Property(e => e.TypeOf).IsModified = false;
 
-                topics.TakenByID = User.Identity.Name.ToString();
+                topics.TakenBy = User.Identity.Name.ToString();
+                topics.TakenByID = User.Identity.GetUserId().ToString();
                 topics.IsTaken = true;
 
                 db.SaveChanges();
@@ -226,7 +228,9 @@ namespace zarzadzanieTematami.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(topics).State = EntityState.Modified;
+                topics.PromotorName = LINQueries.GetNameByID(topics.PromotorID);
                 db.SaveChanges();
+ 
                 return RedirectToAction("Index");
             }
             return View(topics);

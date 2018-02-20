@@ -35,18 +35,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PromotorID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PromotorID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PromotorID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.PromotorName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PromotorName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PromotorName, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.PromotorID, new SelectList(zarzadzanieTematami.LINQueries.GetPromotors(), "Value", "Text"), "Promotor");
             </div>
         </div>
 
