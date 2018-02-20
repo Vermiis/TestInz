@@ -170,7 +170,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\EditUserViewModelController.cs" />
-    <Compile Include="Areas\Admin\Models\Topics.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\AdminViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\EditUserViewModel.cs" />
     <Compile Include="Areas\Promotor\Controllers\PromotorController.cs" />
