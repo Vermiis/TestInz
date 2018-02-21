@@ -25,10 +25,10 @@ namespace zarzadzanieTematami.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(string id = null)
+        public ActionResult Delete(string id)
         {
             var Db = new ApplicationDbContext();
-            var user = Db.Users.First(u => u.UserName == id);
+            var user = Db.Users.First(u => u.Id == id);
             var model = new EditUserViewModel(user);
             if (user == null)
             {
@@ -44,7 +44,7 @@ namespace zarzadzanieTematami.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             var Db = new ApplicationDbContext();
-            var user = Db.Users.First(u => u.UserName == id);
+            var user = Db.Users.First(u => u.Id == id);
             Db.Users.Remove(user);
             Db.SaveChanges();
             return RedirectToAction("Index");
