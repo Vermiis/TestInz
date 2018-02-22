@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using zarzadzanieTematami.Models;
+using System.Data.Entity;
 
 namespace zarzadzanieTematami.Areas.Admin.Controllers
 {
@@ -22,6 +23,25 @@ namespace zarzadzanieTematami.Areas.Admin.Controllers
                 model.Add(u);
             }
             return View(model);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult Edit(string id)
+        {
+            var Db = new ApplicationDbContext();
+            var user = Db.Users.First(u => u.Id == id);
+            var model = new EditUserViewModel(user);
+            if (ModelState.IsValid)
+            {             
+               
+                Db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View(model);
+
+
         }
 
         [Authorize(Roles = "Admin")]
