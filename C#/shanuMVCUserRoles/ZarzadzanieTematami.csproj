@@ -173,7 +173,8 @@
     <Compile Include="Areas\Admin\Models\ViewModels\AdminViewModel.cs" />
     <Compile Include="Areas\Admin\Models\ViewModels\EditUserViewModel.cs" />
     <Compile Include="Areas\Promotor\Controllers\PromotorController.cs" />
-    <Compile Include="Areas\Promotor\Models\ViewModels\PromotorViewModel.cs" />
+    <Compile Include="Areas\Promotor\Controllers\TopicsAcceptViewModelController.cs" />
+    <Compile Include="Areas\Promotor\Models\ViewModels\TopicsAcceptViewModel.cs" />
     <Compile Include="Areas\Promotor\PromotorAreaRegistration.cs" />
     <Compile Include="Areas\Student\Controllers\TopicsController.cs" />
     <Compile Include="Areas\Student\Models\ViewModels\TopicStudentViewModel.cs" />
@@ -237,6 +238,7 @@
     <Content Include="Areas\Student\Views\Student\Index.cshtml" />
     <Content Include="Areas\Student\Views\Student\Details.cshtml" />
     <Content Include="Areas\Admin\Views\EditUserViewModel\Edit.cshtml" />
+    <Content Include="Areas\Promotor\Views\Promotor\AcceptProposition.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -308,6 +310,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Topics\" />
+    <Folder Include="Areas\Promotor\Views\TopicsAcceptViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
