@@ -20,6 +20,7 @@ namespace zarzadzanieTematami.Models
         public string TakenByID { get; set; }
         public string TakenBy { get; set; }
         public string TypeOf { get; set; }
+        public string Commentary { get; set; }
     }
     public class AttendanceDBContext : DbContext
     {

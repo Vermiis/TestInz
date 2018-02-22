@@ -9,9 +9,8 @@ namespace zarzadzanieTematami.Models
     {
         public int ID { get; set; }
         public string UserName { get; set; }
+        public string UserSurname { get; set; }
         public string UserMail { get; set; }
-        public bool IsPromotor { get; set; }
-        public bool IsStudent { get; set; }
-        public bool IsAdmin { get; set; }
+
     }
 }
