@@ -130,6 +130,44 @@ namespace zarzadzanieTematami.Controllers
             return View(topics);
         }
 
+
+        // GET: Promotor/Promotor/Edit/5
+        public ActionResult AcceptProposition(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Topics topics = db.Topics.Find(id);
+            if (topics == null)
+            {
+                return HttpNotFound();
+            }
+            return View(topics);
+        }
+
+        // POST: Promotor/Promotor/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AcceptProposition(Topics topics)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(topics).State = EntityState.Modified;
+                var entry = db.Entry(topics);
+                entry.Property(e => e.PromotorID).IsModified = false;
+                entry.Property(e => e.PromotorName).IsModified = false;
+                entry.Property(e => e.TypeOf).IsModified = false;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(topics);
+        }
+
+
+
         // GET: Topics/Create
         public ActionResult StudentProposition()
         {
@@ -151,14 +189,6 @@ namespace zarzadzanieTematami.Controllers
                 topics.IsProposed = true;
                 topics.PromotorName = LINQueries.GetNameByID(topics.PromotorID);
                 db.SaveChanges();
-
-                //var promotors = Roles.GetUsersInRole("Admin");
-                // var x = db.Roles.Where(role => role.Id == "87d86bf1-6826-463a-9d22-afe4673d3b07").ToList();
-              //  var s = db.Users.SelectMany(c => c.Id);
-              //  var t = db.Roles.SelectMany(r => r.Id);
-               // var usersInRole = db.Users.Where(u => u.Roles.Join(db.Roles, usrRole => usrRole.RoleId, role => role.Id, (usrRole, role) => role).Any(r => r.Name.Equals("Promotor"))).ToList();
-              //  var promotornames=usersInRole.Select(p=>p.UserName);
-
                 return RedirectToAction("Index");
             }
 

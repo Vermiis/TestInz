@@ -136,6 +136,10 @@ namespace zarzadzanieTematami.Areas.Promotor.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(topics).State = EntityState.Modified;
+                var entry = db.Entry(topics);
+                entry.Property(e => e.PromotorID).IsModified = false;
+                entry.Property(e => e.PromotorName).IsModified = false;
+                entry.Property(e => e.TypeOf).IsModified = false;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
