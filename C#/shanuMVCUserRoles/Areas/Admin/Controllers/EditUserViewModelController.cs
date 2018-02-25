@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using zarzadzanieTematami.Models;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace zarzadzanieTematami.Areas.Admin.Controllers
 {
@@ -30,16 +33,14 @@ namespace zarzadzanieTematami.Areas.Admin.Controllers
         public ActionResult Edit(string id)
         {
             var Db = new ApplicationDbContext();
-            var user = Db.Users.First(u => u.Id == id);
-            var model = new EditUserViewModel(user);
+            var users = Db.Users;
+            var user = users.Select(u => u.Id == id);
             if (ModelState.IsValid)
-            {             
-               
+            {
                 Db.SaveChanges();
-
                 return RedirectToAction("Index");
             }
-            return View(model);
+            return View(user);
 
 
         }
@@ -57,7 +58,6 @@ namespace zarzadzanieTematami.Areas.Admin.Controllers
             return View(model);
         }
 
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -69,5 +69,6 @@ namespace zarzadzanieTematami.Areas.Admin.Controllers
             Db.SaveChanges();
             return RedirectToAction("Index");
         }
+     
     }
 }

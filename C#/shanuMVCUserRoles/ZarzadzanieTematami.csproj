@@ -239,6 +239,8 @@
     <Content Include="Areas\Student\Views\Student\Details.cshtml" />
     <Content Include="Areas\Admin\Views\EditUserViewModel\Edit.cshtml" />
     <Content Include="Areas\Promotor\Views\Promotor\AcceptProposition.cshtml" />
+    <Content Include="Areas\Student\Views\Student\MyTopics.cshtml" />
+    <Content Include="Areas\Student\Views\Student\IndexStudent.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
