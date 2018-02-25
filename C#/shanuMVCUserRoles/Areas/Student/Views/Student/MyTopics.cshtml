@@ -41,7 +41,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            @if (item.TakenBy == User.Identity.Name || item.PromotorName == User.Identity.Name)
+            @if (item.TakenByID == User.Identity.Name || item.PromotorName == User.Identity.Name)
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
