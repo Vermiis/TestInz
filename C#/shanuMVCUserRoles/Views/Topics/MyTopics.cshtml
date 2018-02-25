@@ -18,19 +18,10 @@
             @Html.DisplayNameFor(model => model.PromotorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsTaken)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.IsAccepted)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsRejected)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsProposed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TakenBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TypeOf)
@@ -41,7 +32,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            @if (item.TakenBy == User.Identity.Name || item.PromotorName == User.Identity.Name)
+            @if (item.TakenBy == User.Identity.Name)
             {
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
@@ -53,19 +44,10 @@
                     @Html.DisplayFor(modelItem => item.PromotorName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsTaken)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.IsAccepted)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsRejected)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsProposed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TakenBy)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TypeOf)

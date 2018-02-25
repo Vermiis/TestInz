@@ -20,7 +20,10 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PromotorName)
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakenBy)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TypeOf)
@@ -30,28 +33,31 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PromotorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOf)
-            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TakenBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOf)
+        </td>
 
-            <td>
-                @if (User.IsInRole("Promotor"))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
-                    @Html.ActionLink("Details", "Details", new { id = item.ID });
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
-                }
+        <td>
+            @if (User.IsInRole("Promotor"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID });
+        @Html.ActionLink("Details", "Details", new { id = item.ID });
+    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+}
 
-            </td>
-        </tr>
+        </td>
+    </tr>
     }
 
 </table>
