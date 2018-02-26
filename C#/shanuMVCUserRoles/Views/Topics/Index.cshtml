@@ -9,7 +9,7 @@
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Dodaj nowy", "Create")
     </p>
 }
 else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.ToString()) <=3)
@@ -82,9 +82,9 @@ else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identi
             <td>
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
-                    @Html.ActionLink("Details", "Details", new { id = item.ID });
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+                    @Html.ActionLink("Edycja", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID });
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.ID });
                 }
                 else if (User.IsInRole("Student"))
                 {

@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
 
 @{
-    ViewBag.Title = "MyTopicsFree";
+    ViewBag.Title = "Moje tematy - wolne";
 }
 
-<h2>Index</h2>
+<h2>Moje tematy - wolne</h2>
 
 @if (User.IsInRole("Promotor"))
 {
     <p>
-        @Html.ActionLink("Create New", "PromotorAddTopic")
+        @Html.ActionLink("Dodaj nowy temat", "PromotorAddTopic")
     </p>
 }
 
@@ -45,9 +45,9 @@
             <td>
                 @if (User.IsInRole("Promotor"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID });
-                    @Html.ActionLink("Details", "Details", new { id = item.ID });
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+                    @Html.ActionLink("Edycja", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID });
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.ID });
                 }
              
             </td>

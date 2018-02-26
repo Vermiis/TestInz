@@ -1,10 +1,10 @@
 ﻿@model zarzadzanieTematami.Models.Topics
 
 @{
-    ViewBag.Title = "CreateNewTopicPromotor";
+    ViewBag.Title = "Utwórz nowy temat";
 }
 
-<h2>Create</h2>
+<h2>Utwórz nowy temat</h2>
 
 @using (Html.BeginForm())
 {
@@ -52,5 +52,5 @@ new SelectListItem { Text = "Inż/Mgr", Value="Inż/Mgr" }
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "MyTopicsFree")
 </div>

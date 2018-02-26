@@ -15,7 +15,7 @@
 else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.ToString()) <= 3)
 {
     <p>
-        @Html.ActionLink("Create New", "StudentProposition")
+        @Html.ActionLink("Zaproponuj temat", "StudentProposition")
     </p>
 }
 
@@ -58,13 +58,14 @@ else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identi
                 }
                 else if (User.IsInRole("Student"))
                 {
-                    if (item.IsTaken != true && item.IsProposed == false)
+                    if (item.IsTaken != true && item.IsProposed == false && LINQueries.TopicsTakenByUser(User.Identity.ToString()) <= 1)
                     {
-                        @Html.ActionLink("Reservation", "Reservation", new { id = item.ID });
-                        @Html.ActionLink("Details", "Details", new { id = item.ID });
+                        @Html.ActionLink("Rezerwuj", "Reservation", new { id = item.ID });
+
                     }
 
                 }
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ID });
 
             </td>
         </tr>

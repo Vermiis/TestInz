@@ -40,10 +40,20 @@ namespace zarzadzanieTematami
           //  var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).Id;
             using (ApplicationDbContext db = new ApplicationDbContext())           
             {
-                var topics = db.Topics.ToList().Where(t => t.TakenByID == ID);
+                var topics = db.Topics.ToList().Where(t => t.TakenByID == ID && t.IsProposed == true);
                 return topics.Count();
             }
                 
+        }
+        public static int TopicsTakenByUser(string ID)
+        {
+            //  var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).Id;
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var topics = db.Topics.ToList().Where(t => t.TakenByID == ID && t.IsTaken == true);
+                return topics.Count();
+            }
+
         }
 
 

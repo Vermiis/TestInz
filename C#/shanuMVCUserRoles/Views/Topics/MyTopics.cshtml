@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
 
 @{
-    ViewBag.Title = "MyTopics";
+    ViewBag.Title = "Moje tematy";
 }
 
-<h2>MyTopics</h2>
+<h2>Moje tematy</h2>
 
 <table class="table">
     <tr>
@@ -53,7 +53,7 @@
                     @Html.DisplayFor(modelItem => item.TypeOf)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID })
                 </td>
             }
 
