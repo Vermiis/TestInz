@@ -21,10 +21,11 @@ namespace zarzadzanieTematami.Areas.Admin.Models.ViewModels
         }
 
         [Required]
-        [Display(Name = "User Name")]
+        [Display(Name = "Nazwa użytkownika")]
         public string UserName { get; set; }
 
         [Required]
+        [Display(Name = "Adres e-mail")]
         public string Email { get; set; }
         public string ID { get; set; }
 
