@@ -37,7 +37,6 @@ namespace zarzadzanieTematami
         }
         public static int TopicsAssignedToUser(string ID)
         {
-          //  var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).Id;
             using (ApplicationDbContext db = new ApplicationDbContext())           
             {
                 var topics = db.Topics.ToList().Where(t => t.TakenByID == ID && t.IsProposed == true);
@@ -47,7 +46,6 @@ namespace zarzadzanieTematami
         }
         public static int TopicsTakenByUser(string ID)
         {
-            //  var user = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).Id;
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 var topics = db.Topics.ToList().Where(t => t.TakenByID == ID && t.IsTaken == true);
@@ -55,9 +53,6 @@ namespace zarzadzanieTematami
             }
 
         }
-
-
-
 
         public static IEnumerable<ApplicationUser> GetAllUsers()
         {

@@ -12,12 +12,6 @@
         @Html.ActionLink("Dodaj nowy", "Create")
     </p>
 }
-else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.ToString()) <=3)
-{
-    <p>
-        @Html.ActionLink("Create New", "StudentProposition")
-    </p>
-}
 
 <table class="table">
     <tr>

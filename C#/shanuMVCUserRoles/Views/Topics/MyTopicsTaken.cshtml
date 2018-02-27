@@ -33,31 +33,31 @@
 
     @foreach (var item in Model)
     {
-    <tr>
+        <tr>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Details)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TakenBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TypeOf)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakenBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOf)
+            </td>
 
-        <td>
-            @if (User.IsInRole("Promotor"))
-        {
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID });
-        @Html.ActionLink("Details", "Details", new { id = item.ID });
-    @Html.ActionLink("Delete", "Delete", new { id = item.ID });
-}
+            <td>
+                @if (User.IsInRole("Promotor"))
+                {
+                    @Html.ActionLink("Edycja", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID });
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.ID });
+                }
 
-        </td>
-    </tr>
+            </td>
+        </tr>
     }
 
 </table>
