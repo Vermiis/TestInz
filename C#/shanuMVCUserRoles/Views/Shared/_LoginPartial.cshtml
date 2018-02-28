@@ -12,7 +12,7 @@
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
             @if (User.IsInRole("Admin"))
             {
-                <li>@Html.ActionLink("Add new user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Dodaj nowego użytkownika", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
             }
         </ul>
     }
@@ -22,6 +22,6 @@ else
     <ul class="nav navbar-nav navbar-right">
 
 
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Zaloguj się", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
