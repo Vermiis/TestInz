@@ -21,20 +21,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
                     @if (User.IsInRole("Student"))
                     {
-                        <li>@Html.ActionLink("IndexStudent", "IndexStudent", "Topics")</li>
-                        <li>@Html.ActionLink("My Topics", "MyTopics", "Topics")</li>
+                        <li>@Html.ActionLink("Lista tematów", "IndexStudent", "Topics")</li>
+                        <li>@Html.ActionLink("Moje tematy", "MyTopics", "Topics")</li>
                     }
 
 
                     @if (User.IsInRole("Promotor"))
                     {
-                        <li>@Html.ActionLink("PromotorFreeTopics", "MyTopicsFree", "Topics")</li>
-                        <li>@Html.ActionLink("PromotorTakenTopics", "MyTopicsTaken", "Topics")</li>
-                        <li>@Html.ActionLink("PromotorProposedTopics", "MyTopicsProposed", "Topics")</li>
+                        <li>@Html.ActionLink("Wolne tematy", "MyTopicsFree", "Topics")</li>
+                        <li>@Html.ActionLink("Zajęte tematy", "MyTopicsTaken", "Topics")</li>
+                        <li>@Html.ActionLink("Proponowane tematy", "MyTopicsProposed", "Topics")</li>
                     }
                     @if (User.IsInRole("Admin"))
                     {

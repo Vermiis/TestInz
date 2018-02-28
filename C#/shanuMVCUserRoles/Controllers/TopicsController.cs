@@ -14,12 +14,10 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace zarzadzanieTematami.Controllers
 {
-    public class TopicsController : Controller
-    {
-        
-        private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Topics
+    public class TopicsController : Controller
+    {      
+        private ApplicationDbContext db = new ApplicationDbContext();       
         public ActionResult Index()
         {
             return View(db.Topics.ToList());
@@ -33,28 +31,33 @@ namespace zarzadzanieTematami.Controllers
 
         public ActionResult MyTopics()
         {
-            return View(db.Topics.Where(x => x.TakenBy == User.Identity.Name || x.PromotorName == User.Identity.Name && x.IsAccepted == true || x.IsTaken == true).ToList());
+            string userID = User.Identity.GetUserId();
+            return View(db.Topics.Where(x => x.TakenByID == userID && x.IsProposed == true || x.IsTaken == true || x.IsAccepted== true).ToList());
         }
         public ActionResult IndexStudent()
         {
             return View(db.Topics.Where(x=>x.IsTaken==false && x.IsProposed ==false).ToList());
         }
-        // GET: Promotor/Promotor
         public ActionResult MyTopicsAll()
+        // GET: Promotor/Promotor
         {
-            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name));
+            string userID = User.Identity.GetUserId();
+            return View(db.Topics.ToList().Where(x => x.PromotorID == userID));
         }
         public ActionResult MyTopicsFree()
         {
-            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name && x.IsTaken == false));
+            string userID = User.Identity.GetUserId();
+            return View(db.Topics.ToList().Where(x => x.PromotorID == userID && x.IsTaken == false));
         }
         public ActionResult MyTopicsTaken()
         {
-            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name && x.IsTaken == true));
+            string userID = User.Identity.GetUserId();
+            return View(db.Topics.ToList().Where(x => x.PromotorName == userID && x.IsTaken == true));
         }
         public ActionResult MyTopicsProposed()
         {
-            return View(db.Topics.ToList().Where(x => x.PromotorName == User.Identity.Name && x.IsProposed == true));
+            string userID = User.Identity.GetUserId();
+            return View(db.Topics.ToList().Where(x => x.PromotorName == userID && x.IsProposed == true));
         }
 
         // GET: Topics/Details/5

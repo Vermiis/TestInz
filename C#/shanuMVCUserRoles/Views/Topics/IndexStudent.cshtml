@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "IndexStudent";
@@ -12,7 +13,7 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.ToString()) <= 3)
+else if (User.IsInRole("Student") && LINQueries.TopicsAssignedToUser(User.Identity.GetUserId().ToString()) <= 3)
 {
     <p>
         @Html.ActionLink("Zaproponuj temat", "StudentProposition")
