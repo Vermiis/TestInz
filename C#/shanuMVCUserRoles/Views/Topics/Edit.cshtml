@@ -5,6 +5,14 @@
 }
 
 <h2>Edit</h2>
+@{ 
+    var listItems = new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Inżynierska", Value="Inżynierska" },
+                    new SelectListItem { Text = "Magisterska", Value="Magisterska" },
+                    new SelectListItem { Text = "Inż/Mgr", Value="Inż/Mgr" }
+                };
+}
 
 @using (Html.BeginForm())
 {
@@ -80,14 +88,10 @@
                 </div>
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.TypeOf, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.TypeOf)
-                    @Html.ValidationMessageFor(model => model.TypeOf, "", new { @class = "text-danger" })
-                </div>
+                @Html.DropDownListFor(model => model.TypeOf, new SelectList(listItems, "Value", "Text"), "Zakres")
             </div>
         </div>
         <div class="form-group">
