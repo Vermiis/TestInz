@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Zajęte";
 }
 
-<h2>Index</h2>
+<h2>Moje tematy - zajęte</h2>
 
 @if (User.IsInRole("Promotor"))
 {
     <p>
-        @Html.ActionLink("Create New", "PromotorAddTopic")
+        @Html.ActionLink("Dodaj nowy", "PromotorAddTopic")
     </p>
 }
 

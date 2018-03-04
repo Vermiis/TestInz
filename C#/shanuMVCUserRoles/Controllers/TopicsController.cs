@@ -52,12 +52,12 @@ namespace zarzadzanieTematami.Controllers
         public ActionResult MyTopicsTaken()
         {
             string userID = User.Identity.GetUserId();
-            return View(db.Topics.ToList().Where(x => x.PromotorName == userID && x.IsTaken == true));
+            return View(db.Topics.ToList().Where(x => x.PromotorID == userID && x.IsTaken == true));
         }
         public ActionResult MyTopicsProposed()
         {
             string userID = User.Identity.GetUserId();
-            return View(db.Topics.ToList().Where(x => x.PromotorName == userID && x.IsProposed == true));
+            return View(db.Topics.ToList().Where(x => x.PromotorID == userID && x.IsProposed == true));
         }
 
         // GET: Topics/Details/5
@@ -91,7 +91,6 @@ namespace zarzadzanieTematami.Controllers
             if (ModelState.IsValid)
             {
                 db.Topics.Add(topics);
-                topics.PromotorName = LINQueries.GetNameByID(topics.PromotorID);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -119,14 +118,6 @@ namespace zarzadzanieTematami.Controllers
                 topics.PromotorName = User.Identity.Name.ToString();
                 topics.IsAccepted = true;
                 db.SaveChanges();
-
-                //var promotors = Roles.GetUsersInRole("Admin");
-                // var x = db.Roles.Where(role => role.Id == "87d86bf1-6826-463a-9d22-afe4673d3b07").ToList();
-                //  var s = db.Users.SelectMany(c => c.Id);
-                //  var t = db.Roles.SelectMany(r => r.Id);
-                // var usersInRole = db.Users.Where(u => u.Roles.Join(db.Roles, usrRole => usrRole.RoleId, role => role.Id, (usrRole, role) => role).Any(r => r.Name.Equals("Promotor"))).ToList();
-                //  var promotornames=usersInRole.Select(p=>p.UserName);
-
                 return RedirectToAction("Index");
             }
 

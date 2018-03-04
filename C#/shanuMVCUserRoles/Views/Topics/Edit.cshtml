@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edytuj</h2>
 @{ 
     var listItems = new List<SelectListItem>
                 {
@@ -19,7 +19,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Topics</h4>
+    <h4>Propozycja studenta</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
@@ -85,6 +85,15 @@
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsProposed)
                     @Html.ValidationMessageFor(model => model.IsProposed, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TakenBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.TakenBy)
+                    @Html.ValidationMessageFor(model => model.TakenBy, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -179,12 +188,12 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Zapisz" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Powrót", "Index")
 </div>
