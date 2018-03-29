@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Aplikacja do zarządzania tematami", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("Student"))
+                    {
+                        <li>@Html.ActionLink("Lista tematów", "IndexStudent", "Topics")</li>
+                        <li>@Html.ActionLink("Moje tematy", "MyTopics", "Topics")</li>
+                    }
+
+
+                    @if (User.IsInRole("Promotor"))
+                    {
+                        <li>@Html.ActionLink("Wolne tematy", "MyTopicsFree", "Topics")</li>
+                        <li>@Html.ActionLink("Zajęte tematy", "MyTopicsTaken", "Topics")</li>
+                        <li>@Html.ActionLink("Proponowane tematy", "MyTopicsProposed", "Topics")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Proponowane tematy", "ProposedTopics", "Topics")</li>
+                        <li>@Html.ActionLink("Lista tematów", "Index", "Topics")</li>
+                    }
+
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My AplikacjaDoZarzadzaniaTematami
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

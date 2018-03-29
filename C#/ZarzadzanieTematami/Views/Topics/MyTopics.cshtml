@@ -1,0 +1,63 @@
+﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
+
+@{
+    ViewBag.Title = "Moje tematy";
+}
+
+<h2>Moje tematy</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRejected)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOf)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.TakenBy == User.Identity.Name)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PromotorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAccepted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRejected)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOf)
+                </td>
+                <td>
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID })
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>

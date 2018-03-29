@@ -1,0 +1,97 @@
+﻿@model IEnumerable<zarzadzanieTematami.Models.Topics>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Dodaj nowy", "Create")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromotorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRejected)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsProposed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakenBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOf)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PromotorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAccepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsRejected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsProposed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TakenBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOf)
+            </td>
+
+
+
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edycja", "Edit", new { id = item.ID });
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.ID });
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.ID });
+                }
+                else if (User.IsInRole("Student"))
+                {
+                    if (item.IsTaken != true && item.IsProposed == false)
+                    {
+                        @Html.ActionLink("Reservation", "Reservation", new { id = item.ID });
+                        @Html.ActionLink("Details", "Details", new { id = item.ID });
+                    }
+
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>
